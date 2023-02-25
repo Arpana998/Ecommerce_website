@@ -1,25 +1,21 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import ContainerTop from './Components/Container';
+import Music from './Components/Body/Music';
+import NavbarHeader from './Components/Navbar'
+import Merch from './Components/Body/Merch';
 
-function App() {
+
+let App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <NavbarHeader />
+      <ContainerTop />
+      <Music />
+      <Merch />
+      <h2>Welcome</h2>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
