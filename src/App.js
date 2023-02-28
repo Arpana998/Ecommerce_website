@@ -1,19 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
-import ContainerTop from './Components/Container';
 import Music from './Components/Body/Music';
-import NavbarHeader from './Components/Navbar'
-import Merch from './Components/Body/Merch';
+import MusicContainer from './Components/Body/MusicContainer';
+import ContainerTop from './Components/ContainerTop';
+import NavbarHeader from './Components/Navbar';
+import Cart from './Components/Cart';
+
 
 
 let App = () => {
+
+  const [cartIsShown, setCartIsShown] = useState(false)
+
+  const displayCartHandler = () => {
+    setCartIsShown(true)
+  }
+  const closeCartHandler = () => {
+    setCartIsShown(false)
+  }
   return (
     <div>
-      <NavbarHeader />
+      {cartIsShown && <Cart onCloseCart={closeCartHandler}/>}
+      <NavbarHeader  onShowCart={displayCartHandler} />
       <ContainerTop />
+      <MusicContainer />
       <Music />
-      <Merch />
-      <h2>Welcome</h2>
+      
     </div>
   )
 }

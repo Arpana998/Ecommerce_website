@@ -1,26 +1,5 @@
-.T-container.container{
-    background-color: white;
-    max-width: 820px;
-}
-
-.M-container.container{
-    background-color: white;
-    padding: 40px;
-    text-align: center;
-}
-
-.B-container.container{
-    margin: 0 auto;
-    background-color: white;
-}
-
-.d-flex.flex-row.bd-highlight.mb-3{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-h2 {
-    color: black;
-    font-style: italic;
+.ButtonToCart.btn.btn-primary{
+   margin: 0;
+   display: block;
+   align-self: center;
 }

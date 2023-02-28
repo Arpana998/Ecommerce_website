@@ -1,82 +1,62 @@
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
-import './Music.css'
+import { Button } from 'react-bootstrap';
+import Format from './Format';
+import './Music.css';
+
+
+const productsArr = [
+
+    {
+
+        title: 'Colors',
+        imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
+        price: 100,
+
+    },
+
+    {
+
+        title: 'Black and white Colors',
+        imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%202.png',
+        price: 50,
+
+    },
+
+    {
+
+        title: 'Yellow and Black Colors',
+        imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
+        price: 70,
+
+    },
+
+    {
+
+        title: 'Blue Color',
+        imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%204.png',
+        price: 100,
+
+    }
+
+]
 
 const Music = () => {
+    const MusicItem = productsArr.map((item) => (<Format title={item.title} imageUrl={item.imageUrl} price={item.price} />));
     return (
-        <Container className="T-container">
-            <Row>
-                <Col>
-                    <Container className="M-container">
-                        <Row>
-                            <Col><h2>MUSIC</h2></Col>
-                        </Row>
-                    </Container>
-                    <Container className="B-container">
-                        <Row>
-                            <Col>
-                                <div class="d-flex flex-row bd-highlight mb-3">
-                                    <div class="p-2 bd-highlight">
-                                        <Card style={{ width: '18rem' }}>
-                                            <Card.Title>Album 1</Card.Title>
-                                            <Card.Img variant="top" src="https://prasadyash2411.github.io/ecom-website/img/Album%201.png" />
-                                            <Card.Body>
+        <>
+            <div className='container mt-4'>
+                <div className='row d-flex justify-content-center align-items-center'>
+                    
+                        {MusicItem}
+                    
+                </div>
+                <Button className='ButtonToCart' variant="primary">See the cart</Button>{' '}
+            </div>
 
-                                                <Card.Text>
-                                                    $12.99
-                                                </Card.Text>
-                                                <Button variant="primary">Add To Cart</Button>
-                                            </Card.Body>
-                                        </Card>
-                                    </div>
-                                    <div class="p-2 bd-highlight">
-                                        <Card style={{ width: '18rem' }}>
-                                            <Card.Title>Album 2</Card.Title>
-                                            <Card.Img variant="top" src="https://prasadyash2411.github.io/ecom-website/img/Album%202.png" />
-                                            <Card.Body>
 
-                                                <Card.Text>
-                                                    $14.99
-                                                </Card.Text>
-                                                <Button variant="primary">Add To Cart</Button>
-                                            </Card.Body>
-                                        </Card>
-                                    </div>
-                                </div>
-                                <div class="d-flex flex-row bd-highlight mb-3">
-                                    <div class="p-2 bd-highlight">
-                                        <Card style={{ width: '18rem' }}>
-                                            <Card.Title>Album 3</Card.Title>
-                                            <Card.Img variant="top" src="https://prasadyash2411.github.io/ecom-website/img/Album%203.png" />
-                                            <Card.Body>
 
-                                                <Card.Text>
-                                                    $9.99
-                                                </Card.Text>
-                                                <Button variant="primary">Add To Cart</Button>
-                                            </Card.Body>
-                                        </Card>
-                                    </div>
-                                    <div class="p-2 bd-highlight">
-                                        <Card style={{ width: '18rem' }}>
-                                            <Card.Title>Album 4</Card.Title>
-                                            <Card.Img variant="top" src="https://prasadyash2411.github.io/ecom-website/img/Album%204.png" />
-                                            <Card.Body>
-
-                                                <Card.Text>
-                                                    $19.99
-                                                </Card.Text>
-                                                <Button variant="primary">Add To Cart</Button>
-                                            </Card.Body>
-                                        </Card>
-                                    </div>
-                                </div>
-                            </Col>
-                        </Row>
-                    </Container>
-                </Col>
-            </Row>
-        </Container>
+        </>
     )
+
 }
 
 export default Music;
