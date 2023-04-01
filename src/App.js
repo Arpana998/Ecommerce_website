@@ -5,6 +5,7 @@ import MusicContainer from './Components/Body/MusicContainer';
 import ContainerTop from './Components/ContainerTop';
 import NavbarHeader from './Components/Navbar';
 import Cart from './Components/Cart';
+import CartProvider from './Store/CartProvider';
 
 
 
@@ -19,14 +20,14 @@ let App = () => {
     setCartIsShown(false)
   }
   return (
-    <div>
+    <CartProvider>
       {cartIsShown && <Cart onCloseCart={closeCartHandler}/>}
       <NavbarHeader  onShowCart={displayCartHandler} />
       <ContainerTop />
       <MusicContainer />
       <Music />
       
-    </div>
+    </CartProvider>
   )
 }
 
