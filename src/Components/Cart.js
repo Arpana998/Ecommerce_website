@@ -1,31 +1,22 @@
-
+import { useContext } from "react";
 import styled from "styled-components";
-
-
-
+import CartContext from "../Store/cart-context";
+import CartItem from "./CartItem";
 
 const Cart = (props) => {
+  const cartCtx = useContext(CartContext);
+  const totalAmount = `₹${cartCtx.totalAmount.toFixed(2)}`;
 
-    const productsArr = 
+  console.log(props.imageUrl, "am i visible")
 
-        {
-            id: 1,
-            title: 'Colors',
-            imageUrl: (
+  const cartItemAddHandler = (item) => {
+    cartCtx.addItem({...item, amount: 1})
+    console.log(item)
+   }
 
-                <CartImg
-                src="https://prasadyash2411.github.io/ecom-website/img/Album%201.png"
-                
-                alt="./"
-                
-                ></CartImg>
-                ),
-            price: 100,
-    
-        }
-    
-        
-    
+  const cartItemRemoveHandler = (id) => { 
+    cartCtx.removeItem(id)
+  }
 
   return (
     <Container>
@@ -33,33 +24,26 @@ const Cart = (props) => {
       <Button onClick={props.onCloseCart}>X</Button>
       <Wrapper>
         <Item style={{ width: "45%" }}>ITEM</Item>
-        <Item style={{ width: "20%" }}>PRICE</Item>
-        <Item style={{ width: "35%" }}>QUANTITY</Item>
       </Wrapper>
       <Item>
-      {productsArr.imageUrl} 
-        <CartDiv>
-          {productsArr.title}
-        </CartDiv>
-         <ItemPrice>
-          {productsArr.price}
-        </ItemPrice>
-        <ItemQuantity>
-            1
-        </ItemQuantity>
-        <RemoveButton>
-            REMOVE
-        </RemoveButton>
+      {cartCtx.items.map((item) => (
+          <CartItem
+            key={item.id}
+            name={item.name}
+            imageUrl={item.imageUrl}
+            price={item.price}
+            amount={item.amount}
+            onRemove={cartItemRemoveHandler.bind(null, item.id)}
+            onAdd={cartItemAddHandler.bind(null, item)}
+          />
+      ))}
       </Item>
       <CartTotal>
         <CartSpan>
-        
           <CartTitle>
-            
-            {console.log(productsArr.title)}
             <strong>Total</strong>
           </CartTitle>
-          <CartTotalAmount>total Amount</CartTotalAmount>
+          <CartTotalAmount>{totalAmount}</CartTotalAmount>
         </CartSpan>
         <CartButton>PURCHASE</CartButton>
       </CartTotal>
@@ -77,10 +61,11 @@ const Container = styled.section`
   right: 0;
   background-color: rgb(255, 255, 255);
   border: 1px solid rgb(177, 103, 103);
-  min-height: 50vh;
-  max-width: 900px;
+  width: 400px;
+  height: 700px;
   padding: 20px 30px;
   z-index: 999;
+  overflow: auto;
 `;
 const Title = styled.h2`
   text-align: center;
@@ -108,53 +93,60 @@ const Wrapper = styled.div`
   font-weight: bold;
 `;
 
-const CartImg = styled.img`  
+/*const CartImg = styled.img`  
   
   border-radius: 2px;
   padding: 3px;
   width: 70px;
-  
-`;
 
-const CartDiv = styled.h3`
+  min-height: 50vh;
+  max-width: 900px;
+  
+`;*/
+
+/*const CartDiv = styled.h3`
   text-align: left;
   font-weight: bold;
   font-size: 14px;
   margin: 10px 0px;
   padding: 0;
-`;
 
-const ItemPrice = styled.span`
+  <Item style={{ width: "20%" }}>PRICE</Item>
+        <Item style={{ width: "35%" }}>QUANTITY</Item>
+`;*/
+
+/*const ItemPrice = styled.span`
 display: flex;
 text-align: right;
 font-weight: bold;
 margin-left: 100px
-`;
+`;*/
 
-const ItemQuantity = styled.button`
+/*const ItemQuantity = styled.button`
 margin-left: 50px;
 padding: 5px;
 font-weight: 400;
 background-color: white;
 color: black;
 border: 2px solid #008CBA;
-`;
+`;*/
 
-const RemoveButton = styled.button`
+/*const RemoveButton = styled.button`
 margin: 15px;
 font-weight: bold;
 color: white;
 background-color: #f44336;
 border-color: none;
-`;
+`;*/
 
 const Item = styled.span`
-  display: flex;
+  display: list-item;
   align-items: center;
   border-bottom: 1px solid black;
   margin-right: 1.5em;
   padding-bottom: 10px;
   margin-top: 10px;
+  font-style: italic;
 `;
 const CartTotal = styled.div`
   display: flex;
@@ -181,10 +173,39 @@ const CartButton = styled.button`
   cursor: pointer;
 `;
 
+/*{productsArr.imageUrl} 
+       <CartDiv>
+         {productsArr.title}
+       </CartDiv>
+        <ItemPrice>
+         {productsArr.price}
+       </ItemPrice>
+       <ItemQuantity>// i have to add form over here
+           5
+       </ItemQuantity>
+       <RemoveButton>
+           -
+       </RemoveButton>
 
+/*<Item>
+     {productsArr.imageUrl} 
+       <CartDiv>
+         {productsArr.title}
+       </CartDiv>
+        <ItemPrice>
+         {productsArr.price}
+       </ItemPrice>
+       <ItemQuantity>
+           1
+       </ItemQuantity>
+       <RemoveButton>
+           REMOVE
+       </RemoveButton>
+     </Item>*/
 
-
-
+/*{cartCtx.items.map((item) => (
+        <CartItem key={item.id} name={item.name} price={item.price} amount={item.amount} onAdd={cartItemAddHandler.bind(null, item)} onRemove={cartItemRemoveHandler.bind(null, item.id)} />
+      ))}*/
 
 /*import Modal from "./Modal";
 
