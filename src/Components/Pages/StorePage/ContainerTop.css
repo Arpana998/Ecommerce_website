@@ -1,0 +1,17 @@
+.container-fluid{
+    background-color: rgb(149, 141, 141);
+    height: 150px;
+    margin-top: 2px;
+    padding: 60px;
+    text-align: center;
+    
+    
+}
+
+h1 {
+    color: white;
+    font-family: serif;
+    font-size: 100%;
+    font-weight: bolder;
+    
+  }

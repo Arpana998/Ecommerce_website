@@ -1,0 +1,23 @@
+.homecontainer {
+    background-color:rgb(149, 141, 141);
+    height: 400px;
+    margin-top: 2px;
+    padding: 60px;
+    text-align: center;
+    
+    
+    
+}
+
+.generics {
+    color: white;
+    font-family: serif;
+    font-size: 70px;
+  }
+
+.tagline {
+    color: white;
+    font-family: serif;
+    font-size: 30px;
+    padding-top: 50px;
+}
