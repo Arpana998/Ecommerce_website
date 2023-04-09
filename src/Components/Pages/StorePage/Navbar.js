@@ -6,15 +6,16 @@ import { Link } from 'react-router-dom';
 
 
 
+
 function NavbarHeader(props) {
 
   const cartCtx = useContext(CartContext)
-  const numberOfCartItems = cartCtx.items.length;
-  console.log("onClick")
+  // const numberOfCartItems = cartCtx.items.length;
+  // console.log("onClick")
 
- /* const numberOfCartItems = cartCtx.items.reduce((curNumber, item) => {
+  const numberOfCartItems = cartCtx.items.reduce((curNumber, item) => {
     return curNumber + item.amount;
-  }, 0);*/
+  }, 0);
 
   return (
     
@@ -24,8 +25,9 @@ function NavbarHeader(props) {
       <Container>
         <Nav className="mx-auto parent" style={{ fontWeight: 'bold' }}>
           <Nav.Link as={Link} to="/home">HOME</Nav.Link>
-          <Nav.Link as={Link} to="/">STORE</Nav.Link>
+          <Nav.Link as={Link} to="/store">STORE</Nav.Link>
           <Nav.Link as={Link} to="/about">ABOUT</Nav.Link>
+          <Nav.Link as={Link} to="/contactus">CONTACT_US</Nav.Link>
         </Nav>
         <Button onClick={cartCtx.showCartHandler} variant="secondary">
             {<FaShoppingCart color='white' fontSize='25px'/>}

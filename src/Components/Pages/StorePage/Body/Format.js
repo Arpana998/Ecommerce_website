@@ -3,6 +3,7 @@ import './Format.css'
 import { useContext } from 'react';
 import CartContext from '../../../../Store/cart-context';
 import CartItemForm from '../CartItemForm';
+import { Link } from 'react-router-dom';
 
 
 const Format = (props) => {
@@ -30,18 +31,13 @@ const Format = (props) => {
     console.log(props.imageUrl)
     
   }
-  
-
-  
-
-  
 
 
   return (
     <>
     <Card style={{ height: '30rem', width: '22rem', border: 'none' }} className='mx-5 mt-2 card_style'>
       <Card.Title>{props.title}</Card.Title>
-      <Card.Img variant="top" src={props.imageUrl} style={{height:'20rem'}}/>
+      <Link to={`/store/product/${props.id}`}><Card.Img variant="top" src={props.imageUrl} style={{height:'20rem'}}/></Link>
       <Card.Body>
         <Card.Text>
           {props.price}
