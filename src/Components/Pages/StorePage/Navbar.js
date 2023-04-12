@@ -28,6 +28,7 @@ function NavbarHeader(props) {
           <Nav.Link as={Link} to="/store">STORE</Nav.Link>
           <Nav.Link as={Link} to="/about">ABOUT</Nav.Link>
           <Nav.Link as={Link} to="/contactus">CONTACT_US</Nav.Link>
+          <Nav.Link as={Link} to="/login">LOGIN</Nav.Link>
         </Nav>
         <Button onClick={cartCtx.showCartHandler} variant="secondary">
             {<FaShoppingCart color='white' fontSize='25px'/>}

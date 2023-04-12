@@ -1,0 +1,64 @@
+.inputform{
+    justify-content: center;
+    display: flex;
+    width: 40%;
+    margin-left: 450px;
+    margin-top: 50px;
+    align-content: center;
+    border-radius: 5px;
+    background-color: white;
+    padding: 50px;
+    
+
+}
+
+.action_page{
+    margin: 0;
+    padding: 0;
+}
+
+label{
+    font-style: normal;
+    text-align: left;
+    margin-bottom: 20px;
+       
+}
+
+input{
+    width: 100%; /* Full width */
+  padding: 12px; /* Some padding */ 
+  border: 1px solid #ccc; /* Gray border */
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 30px; /* Bottom margin */
+  resize: vertical 
+}
+
+/* #freleasedate{
+    height: 100px;
+} */
+
+.parentbutton{
+    display: flex;
+}
+
+.childbutton{
+    justify-content: center;
+}
+
+.button{
+    align-content: space-around;
+}
+
+button{
+    font: inherit;
+  cursor: pointer;
+  background: #230052;
+  border: 1px solid #230052;
+  color: white;
+  padding: 0.75rem 2rem;
+  border-radius: 20px;
+  align-items: center;
+  float: inline-start;
+}

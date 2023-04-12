@@ -1,34 +1,35 @@
-import React, { useState } from 'react';
-import './App.css';
-import Music from './Components/Body/Music';
-import MusicContainer from './Components/Body/MusicContainer';
-import ContainerTop from './Components/ContainerTop';
-import NavbarHeader from './Components/Navbar';
-import Cart from './Components/Cart';
-import CartProvider from './Store/CartProvider';
+import About from "./Components/Pages/AboutPage/About";
+import Home from "./Components/Pages/HomePage/Home";
+import Store from "./Components/Pages/Store"
+import { Routes, Route } from 'react-router-dom';
+import NavbarHeader from "./Components/Pages/StorePage/Navbar";
+import ContactUsPage from "./Components/Pages/ContactPage/ContactUsPage";
+import ProductSpecificPage from "./Components/Pages/StorePage/ProductSpecificPage";
+import Login from "./Components/Pages/LoginPage/Login";
+
 
 
 
 let App = () => {
 
-  const [cartIsShown, setCartIsShown] = useState(false)
-
-  const displayCartHandler = () => {
-    setCartIsShown(true)
-  }
-  const closeCartHandler = () => {
-    setCartIsShown(false)
-  }
-  return (
-    <CartProvider>
-      {cartIsShown && <Cart onCloseCart={closeCartHandler}/>}
-      <NavbarHeader  onShowCart={displayCartHandler} />
-      <ContainerTop />
-      <MusicContainer />
-      <Music />
-      
-    </CartProvider>
+  
+  
+  return(
+    <>
+    {/* <Store/> */}
+    <NavbarHeader />
+      <Routes>
+        <Route path="/home" element={<Home />} />
+        <Route path="/about" element={<About />}/>
+        <Route path="/store" element={<Store />}/>
+        <Route path="/contactus" element={<ContactUsPage />}/>
+        <Route path="/store/product/:selectedItemId" element={<ProductSpecificPage />}/>
+        <Route path="/login" element={<Login />}/>
+      </Routes>
+      </>
+   
   )
+
 }
 
 export default App
