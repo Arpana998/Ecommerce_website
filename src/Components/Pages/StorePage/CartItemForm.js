@@ -13,7 +13,6 @@ const CartItemForm = (props) => {
         event.preventDefault();
         const enteredAmount = amountInputRef.current.value;
         const enteredAmountInNumber = +enteredAmount;
-        console.log(enteredAmountInNumber)
 
         props.onAddToCart(enteredAmountInNumber);
     }

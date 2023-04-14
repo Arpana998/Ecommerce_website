@@ -24,7 +24,7 @@ const ContactUsPage = () => {
         },
       }
     );
-    const data = await response.json();
+    const data = await response.json().then(alert('Response submitted'));
 
     console.log(data);
   }

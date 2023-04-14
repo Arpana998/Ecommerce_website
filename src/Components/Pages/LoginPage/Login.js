@@ -29,7 +29,7 @@ const Login = () => {
         "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAi7YY_QKd44i8iRs5k9wNCmoPA4SeEvoY";
     } else {
       url =
-        "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAi7YY_QKd44i8iRs5k9wNCmoPA4SeEvoY";
+        "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAi7YY_QKd44i8iRs5k9wNCmoPA4SeEvoY";
     }
 
     fetch(url, {
@@ -54,8 +54,8 @@ const Login = () => {
         }
       })
       .then((data) => {
-        console.log(data);
-        authCtx.login(data.idToken);
+        authCtx.login(data.idToken , data.email);
+        // authCtx.user(data.email);
         navigate('/store', `replace: true`);
       })
       .catch((err) => {
@@ -75,10 +75,10 @@ const Login = () => {
 
         <span id="button">
           <div className="parentbutton">
-            <button>{isLogin ? "Login" : "Create Account"}</button>
+            <button type="submit">{isLogin ? "Login" : "Create Account"}</button>
           </div>
           <div>
-          <button className="childbutton" onClick={switchAuthModeHandler}>
+          <button className="childbutton" type="reset" onClick={switchAuthModeHandler}>
             {isLogin ? "Create new account" : "Login with existing account"}
           </button>
           </div>

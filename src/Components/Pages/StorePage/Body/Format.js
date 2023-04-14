@@ -20,6 +20,7 @@ const Format = (props) => {
      amount: props.amount,
      price: props.price
     })*/
+
     cartCtx.addItem({
       id: props.id,
       name: props.title,
@@ -28,6 +29,14 @@ const Format = (props) => {
       price: props.price,
      
     })
+
+    // cartCtx.addToStorage({
+    //   id: props.id,
+    //   name: props.title,
+    //   imageUrl: props.imageUrl,
+    //   amount: amount,
+    //   price: props.price,
+    // })
     console.log(props.imageUrl)
     
   }

@@ -21,13 +21,12 @@ const Website = (props) => {
   //  }
 
   const cartCtx = useContext(CartContext)
-  console.log(cartCtx)
 
    
   return (
     <div>
       {cartCtx.cartIsShown && <Cart />}
-      {console.log(cartCtx.cartIsShown)}
+      {/* {console.log(cartCtx.cartIsShown)} */}
       {/* <NavbarHeader  onShowCart={displayCartHandler} /> */}
       <ContainerTop />
       <MusicContainer />

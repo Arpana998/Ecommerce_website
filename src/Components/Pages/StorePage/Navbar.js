@@ -3,6 +3,7 @@ import {FaShoppingCart} from 'react-icons/fa';
 import { useContext } from 'react';
 import CartContext from '../../../Store/cart-context';
 import { Link } from 'react-router-dom';
+import AuthContext from '../../../Store/AuthContext';
 
 
 
@@ -12,11 +13,17 @@ function NavbarHeader(props) {
   const cartCtx = useContext(CartContext)
   // const numberOfCartItems = cartCtx.items.length;
   // console.log("onClick")
+  const authCtx = useContext(AuthContext);
 
   const numberOfCartItems = cartCtx.items.reduce((curNumber, item) => {
     return curNumber + item.amount;
   }, 0);
 
+  const logoutHandler = () => {
+    authCtx.logout();
+  }
+
+  
   return (
     
    <div>
@@ -30,10 +37,11 @@ function NavbarHeader(props) {
           <Nav.Link as={Link} to="/contactus">CONTACT_US</Nav.Link>
           <Nav.Link as={Link} to="/login">LOGIN</Nav.Link>
         </Nav>
-        <Button onClick={cartCtx.showCartHandler} variant="secondary">
+        {authCtx.isLoggedin && <Button onClick={cartCtx.showCartHandler} variant="secondary">
             {<FaShoppingCart color='white' fontSize='25px'/>}
             <Badge bg="secondary">{numberOfCartItems}</Badge>
-        </Button>
+        </Button>}
+        <button onClick={logoutHandler}>Logout</button>
       </Container>
     </Navbar>
     </>
